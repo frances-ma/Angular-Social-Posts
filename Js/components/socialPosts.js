@@ -9,6 +9,8 @@ const socialPosts = {
     <post-form ng-show="$ctrl.formOpen" on-submit="$ctrl.onSubmit(item);"></post-form>
   </div>
   `,
+  // ng-repeat the array in child component "post"
+  // when New Post! button is clicked, ng-click opens the form in "post-form"
   controller: function() {
     const vm = this;
     vm.post = [
@@ -23,7 +25,7 @@ const socialPosts = {
     vm.openForm = () => {
       vm.formOpen = true;
     };
-
+    // unshift method to push new title and composition as object to beginning of the array "post"
     vm.onSubmit = (item) => {
       vm.post.unshift({
         title: item.title,
