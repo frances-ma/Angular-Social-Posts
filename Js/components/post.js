@@ -6,8 +6,8 @@ const post = {
     },
     // inbound binding of expression (array)
     template: `
-    <h2> {{$ctrl.post.title}}</h2>
-    <p>{{$ctrl.post.composition}}</p>
+    <h2> {{$ctrl.post.title}} </h2>
+    <p> {{$ctrl.post.composition}} </p>
 `
 
 

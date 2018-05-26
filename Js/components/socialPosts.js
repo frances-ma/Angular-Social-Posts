@@ -9,6 +9,7 @@ const socialPosts = {
     <post-form ng-show="$ctrl.formOpen" on-submit="$ctrl.onSubmit(item);"></post-form>
   </div>
   `,
+  // create a simple element inside the template of parent component to test 
   // ng-repeat the array in child component "post"
   // when New Post! button is clicked, ng-click opens the form in "post-form"
   controller: function() {
@@ -22,19 +23,26 @@ const socialPosts = {
       {title: "My Ideas", composition: "here are some thoughts."}
     ];
 
-    vm.openForm = () => {
-      vm.formOpen = true;
-    };
+      vm.openForm = () => {
+        vm.formOpen = true;
+      };
+
+      vm.closeForm = () => {
+       vm.formOpen = false; 
+     };
+
+    // formOpen can be called anything. It must be referenced the same in ng-show. 
     // unshift method to push new title and composition as object to beginning of the array "post"
     vm.onSubmit = (item) => {
       vm.post.unshift({
         title: item.title,
         composition: item.composition
-      })
-      item.title = "";
-      item.composition = "";
-      vm.formOpen = false;
-      console.log();
+      }); 
+
+       item.title = "";
+       item.composition = "";
+       vm.formOpen = false;
+       console.log();
     }
   }
 };
@@ -45,6 +53,21 @@ angular
 .component("socialPosts", socialPosts); 
 
 /*
+
+    vm.onSubmit = (item) => {
+      console.log(item); 
+   })
+
+^ should return an object in console that 
+
+
+
+vm.closeForm = () =>{
+        vm.
+  }
+
+
+
 
 a. The socialPosts component is the parent component.
 i. It owns the list of posts.
